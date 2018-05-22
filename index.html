@@ -1,0 +1,72 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Yuol 全文搜索</title>
+  <meta name="keywords" content="Yuol, 全文搜索, 长江大学， 党委宣传部">
+  <meta name="description" content="Yuol 2016级 全文搜索引擎">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="container">
+    <video id="background_video" loop></video>
+    <div id="video_cover"></div>
+    <div id="overlay"></div>
+
+    <div id="video_controls">
+      <span id="play">
+        <img src="resource/play.png">
+      </span>
+      <span id="pause">
+        <img src="resource/pause.png">
+      </span>
+    </div>
+
+    <div class="main">
+      <!-- 顶部导航 -->
+      <header class="top">
+        <div class="time">
+          
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li class="dropdown"><a href="javascript:;">作者信息</a>
+              <ul class="dropdown-menu">
+                <li>前端: 贾顺昌</li>
+                <li>后端: 唐鸿成</li>
+              </ul>
+            </li>
+            <li><a href="http://online.yangtzeu.edu.cn/" target="_blank">关于我们</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- 搜索 -->
+      <div id="search" class="search-wrapper">
+        <div class="logo">
+          <img src="resource/yuol.png" alt="长大在线">
+        </div>
+        <div class="content">
+          <h1 class="title"><span>Y</span>uol<i>全文搜索</i></h1>
+          <form action="./result.html" class="search" autocomplete="off">
+            <input type="text" id="text" name="s_str" v-model="keyWord" @keydown.up.prevent="select(-1)" @keydown.down.prevent="select(1)" @keydown.enter="enterEvent">
+            <input type="submit" id="submit" value="搜索一下">
+          </form>
+          <ul class="search-list" v-show="searchInfo">
+            <li class="search-item" v-for="(item,index) in searchInfo" :class="{'active': selectIndex === index}"><a :href="item.href" v-html="showKeyWord(item.title)" target="_blank"></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- 尾部 -->
+      <footer class="bottom">
+        <p>技术支持: 长大在线信息传媒</p>
+      </footer>
+    </div>
+    
+  </div>
+  <script src="js/lib/vue.min.js" type="text/javascript"></script>
+  <script src="js/lib/vue-resource.js" type="text/javascript"></script>
+  <script src="js/index.js" type="text/javascript"></script>
+  <script src="js/bideo.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
