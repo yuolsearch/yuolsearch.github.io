@@ -11,7 +11,7 @@ new Vue({
     },
     watch:{
         keyWord: function(value){
-            if(document.activeElement.id === 'text'){
+            if(document.activeElement.id === 'text' && value !== ''){
                 var reg = /^\s*\s*$/g;
                 value = value.replace(reg, "");
                 if(value){
@@ -40,7 +40,6 @@ new Vue({
             this.$http.get(url, {"id": parmas.s_str}).then(function(res){
                 var newTime = new Date().getTime();
                 this.useTime = newTime - time;
-                console.log(time, newTime)
                 this.showList = res.body.searchList;
                 this.total = res.body.resultNum;
             });
@@ -65,9 +64,10 @@ new Vue({
                 this.selectIndex = this.searchInfo.length;
             }
         },
-        enterEvent: function(){
+        enterEvent: function(e){
             if(this.selectIndex >= 0 && this.selectIndex <= this.searchInfo.length - 1){
-                window.open(this.searchInfo[this.selectIndex].href)
+                window.open(this.searchInfo[this.selectIndex].href);
+                e.preventDefault();
             }
         },
         displayTime: function(){

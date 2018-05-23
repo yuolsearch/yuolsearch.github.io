@@ -86,8 +86,9 @@ body {
     position: relative;
     width: 100vw;
     height: 60px;
-    background: #fff;
     opacity: 0.5;
+    color: #fff;
+    background-color: #000;
 }
 
 .time{
@@ -127,12 +128,13 @@ body {
 
 .navbar>ul>li a{
     display: block; 
-    color: #000;
+    color: #fff;
     text-decoration: none;
 }
 
 .dropdown:hover .dropdown-menu{
     opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
 
 .dropdown-menu{
@@ -140,7 +142,8 @@ body {
     position: absolute;
     top: 45px;
     width: 100%;
-    background-color: #fff;
+    background-color: #000;
+    transform: translate3d(0, -100%, 0);
     transition: all 0.2s linear;
 }
 
@@ -201,7 +204,7 @@ body {
 }
 
 .logo {
-    width: 20%;
+    width: 22vh;
 }
 
 .logo img {
@@ -236,7 +239,7 @@ body {
     margin-top: -8px;
     width: 20%;
     height: 47px;
-    line-height: 52px;
+    line-height: 57px;
     background-color: #69f;
     color: #fff;
     font-size: 18px;
@@ -331,9 +334,13 @@ body {
     margin: 12px 0;
 }
 
+.show-list li:hover{
+
+}
+
 .show-list li a{
     display: inline-block;
-    width:100%;
+    width: 100%;
     text-decoration: none;
     color: #fff;
     text-align: left;
@@ -386,12 +393,12 @@ body {
 }
 .page span{
     display: block;
-    height: 40px;
+    height: 50px;
     width: 40px;
 }
 
 .up{
-    background: url('../resource/btn.png') no-repeat 10px;
+    background: url('../resource/btn.png') no-repeat 0;
     border-radius: 50%;
     cursor: pointer;
     transform: rotate(90deg)
@@ -403,10 +410,12 @@ body {
     color: #6c0;
     line-height: 30px;
     text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
 }
 
 .down{
-    background: url('../resource/btn.png') no-repeat 10px;
+    background: url('../resource/btn.png') no-repeat 0;
     border-radius: 50%;
     cursor: pointer;
     transform: rotate(-90deg)
